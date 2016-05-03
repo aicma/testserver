@@ -25,7 +25,9 @@ app.post('/', function(req, res) {
   });
 
   req.on('end', function () {
+    console.log(JSON.parse(jsonString));
     res.send(JSON.parse(jsonString));
+
   });
 /*
   res.send('post request received');
