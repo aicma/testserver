@@ -18,7 +18,15 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function(req, res) {
-  res.send(JSON.parse(req.body));
+  var jsonString = '';
+
+  req.on('data', function (data) {
+    jsonString += data;
+  });
+
+  req.on('end', function () {
+    res.send(JSON.parse(jsonString));
+  });
 /*
   res.send('post request received');
   req.on('end',function(data){
