@@ -5,15 +5,16 @@ var PORT = process.env.PORT || 8080;
 
 app.get('/', function (req, res) {
   res.send({
-    1: {
+    {
       lat: 48.3582,
       long: 10.9067
     },
-    2: {
-      lat: 23.6578,
-      long: 47.3267
+    {
+      lat: 48.3564,
+      long: 10.8971
       }
-  });
+    }
+  ]);
 });
 
 app.post('/change', function(req, res) {
