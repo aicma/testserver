@@ -17,13 +17,17 @@ app.get('/', function (req, res) {
   );
 });
 
-app.post('/change', function(req, res) {
-  req.on('end',function(){
+app.post('/', function(req, res) {
+  console.log('test');
+/*
+  res.send('post request received');
+  req.on('end',function(data){
   // Properties sent with query (e.g. url params)
     console.log('Query', req.query);
   // Properties sent with body (=payload)
     console.log('Body', req.body);
   })
+*/
 });
 
 
