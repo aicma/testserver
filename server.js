@@ -18,11 +18,12 @@ app.get('/', function (req, res) {
 });
 
 app.post('/change', function(req, res) {
+  req.on('end',function(){
   // Properties sent with query (e.g. url params)
-  console.log('Query', req.query);
-  res.send(req.query);
+    console.log('Query', req.query);
   // Properties sent with body (=payload)
-  console.log('Body', req.body);
+    console.log('Body', req.body);
+  })
 });
 
 
