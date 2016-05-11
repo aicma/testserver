@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
       long: 10.9067
     },
     2: {
-      lat: 48.3564,
+      lat: 48.356,
       long: 10.897
       }
     }
