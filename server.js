@@ -23,19 +23,19 @@ app.get('/events', function (req, res) {
       name: "Zugspitz Ultratrail",
       date: new Date("2016-06-23"),
       img: "",
-      numberformat: /^\d{4}$/
+      numberformat: "/^\d{4}$/"
     },
     1: {
       name: "Rad am Ring",
       date: new Date("2016-07-23"),
       img: "",
-      numberformat: /^[A-B]{1}\s*\d{1,4}$/i
+      numberformat: "/^[A-B]{1}\s*\d{1,4}$/i"
     },
     2: {
       name: "TestEvent",
       date: new Date("2016-02-23"),
       img: "",
-      numberformat: /^\d{1,4}\s*[A-B]$/i
+      numberformat: "/^\d{1,4}\s*[A-B]$/i"
     }
   }
   );
