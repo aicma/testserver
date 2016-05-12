@@ -19,22 +19,19 @@ app.get('/cameras', function (req, res) {
 
 app.get('/events', function (req, res) {
   res.send({
-     {
-      id: 0,
+     0: {
       name: "Zugspitz Ultratrail",
       date: new Date("2016-06-23"),
       img: "",
       numberformat: /^\d{4}$/
     },
-    {
-      id: 1,
+    1: {
       name: "Rad am Ring",
       date: new Date("2016-07-23"),
       img: "",
       numberformat: /^[A-B]{1}\s*\d{1,4}$/i
     },
-    {
-      id: 2,
+    2: {
       name: "TestEvent",
       date: new Date("2016-02-23"),
       img: "",
