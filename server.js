@@ -39,6 +39,13 @@ app.get('/events', function (req, res) {
       date: new Date("2016-02-23"),
       img: "",
       numberformat: "^\\d{1,4}\\s*[A-B]$"  
+    },
+    {
+      id: 3245,
+      name: "tour de Innsbruck",
+      date: new Date("2016-06-23"),
+      img: "",
+      numberformat: "^[A-B]{1}\\s*\\d{1,4}$"
     }
   ]);
 });
@@ -52,6 +59,7 @@ app.post('/rider', function(req, res) {
 
   req.on('end', function () {
     console.log(JSON.parse(jsonString));
+
     res.send(JSON.parse(jsonString));
 
   });
