@@ -4,17 +4,59 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 app.get('/cameras', function (req, res) {
-  res.send({
-    1: {
-      lat: 48.3582,
-      long: 10.9067
-    },
-    2: {
-      lat: 48.356,
-      long: 10.897
-      }
-    }
-  );
+  var eventID = req.query.id;
+  switch(eventID){
+    case 0:
+        res.send({
+          1: {
+            lat: 48.3582,
+            long: 10.9067
+          },
+          2: {
+            lat: 48.356,
+            long: 10.897
+          }
+        });
+      break;
+    case 1:
+      res.send({
+          1: {
+            lat: 48.3582,
+            long: 10.9067
+          },
+          2: {
+            lat: 48.356,
+            long: 10.897
+          }
+        });
+      break;
+    case 2:
+        res.send({
+          1: {
+            lat: 48.3582,
+            long: 10.9067
+          },
+          2: {
+            lat: 48.356,
+            long: 10.897
+          }
+        });
+      break;
+    case 3245:
+        res.send({
+          1: {
+            lat: 48.3582,
+            long: 10.9067
+          },
+          2: {
+            lat: 48.356,
+            long: 10.897
+          }
+        });
+      break;
+    default:
+        res.send('ERROR - EventID not registered'); //technically should not happen         
+  }
 });
 
 app.get('/events', function (req, res) {
