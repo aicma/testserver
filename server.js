@@ -5,6 +5,7 @@ var PORT = process.env.PORT || 8080;
 
 app.get('/cameras', function (req, res) {
   var eventID = req.query.id;
+  console.log('eventID');
   switch(eventID){
     case 0:
         res.send({
