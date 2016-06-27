@@ -6,9 +6,9 @@ var PORT = process.env.PORT || 8080;
 app.get('/cameras', function (req, res) {
   var eventID = req.query.id;
   console.log(eventID +', '+ req.query.id);
-  switch(eventID){
+  switch (parseInt(eventID, 10)) {
     case 0:
-        res.send({
+      res.send({
           1: {
             lat: 48.3582,
             long: 10.9067
@@ -17,7 +17,7 @@ app.get('/cameras', function (req, res) {
             lat: 48.356,
             long: 10.897
           }
-        });
+      });
       break;
     case 1:
       res.send({
@@ -32,7 +32,7 @@ app.get('/cameras', function (req, res) {
         });
       break;
     case 2:
-        res.send({
+      res.send({
           1: {
             lat: 48.3582,
             long: 10.9067
@@ -41,10 +41,10 @@ app.get('/cameras', function (req, res) {
             lat: 48.356,
             long: 10.897
           }
-        });
+      });
       break;
     case 3245:
-        res.send({
+      res.send({
           1: {
             lat: 48.3582,
             long: 10.9067
@@ -53,7 +53,7 @@ app.get('/cameras', function (req, res) {
             lat: 48.356,
             long: 10.897
           }
-        });
+      });
       break;
     default:
         res.send('ERROR - EventID not registered'); //technically should not happen         
@@ -106,15 +106,6 @@ app.post('/rider', function(req, res) {
     res.send(JSON.parse(jsonString));
 
   });
-/*
-  res.send('post request received');
-  req.on('end',function(data){
-  // Properties sent with query (e.g. url params)
-    console.log('Query', req.query);
-  // Properties sent with body (=payload)
-    console.log('Body', req.body);
-  })
-*/
 });
 
 
