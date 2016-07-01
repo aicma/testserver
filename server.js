@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 8080;
 app.get('/cameras', function (req, res) {
   var eventID = req.query.id;
   console.log(eventID +', '+ req.query.id);
+  res.header("Access-Control-Allow-Origin", "*");
   switch (parseInt(eventID, 10)) {
     case 0:
       res.send({
@@ -14,8 +15,8 @@ app.get('/cameras', function (req, res) {
             long: 10.9067
           },
           2: {
-            lat: 48.356,
-            long: 10.897
+            lat: 48.356349,
+            long: 10.896281
           }
       });
       break;
@@ -61,6 +62,7 @@ app.get('/cameras', function (req, res) {
 });
 
 app.get('/events', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
   res.send([
      {
       id: 0,
