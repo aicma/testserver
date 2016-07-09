@@ -59,9 +59,9 @@ app.get('/cameras', function (req, res) {
   res.header("Content-Type", "application/json");
   switch (parseInt(eventID, 10)) {
     case 0:
-      res.status(200).send(
+      res.status(200).send({
         cameras.0;
-      );
+      });
       break;
     case 1:
       res.status(200).send({
