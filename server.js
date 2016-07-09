@@ -3,10 +3,48 @@ var app = express();
 
 var PORT = process.env.PORT || 8080;
 
+var events = [
+     {
+      id: 0,
+      name: "Zugspitz Ultratrail",
+      date: new Date("2016-06-23"),
+      img: "",
+      numberformat: "^\\d{4}$"
+    },
+    {
+      id: 1,
+      name: "Rad am Ring",
+      date: new Date("2016-07-23"),
+      img: "",
+      numberformat: "^[A-B]{1}\\s*\\d{1,4}$"
+    },
+    {
+      id: 2,
+      name: "TestEvent",
+      date: new Date("2016-02-23"),
+      img: "",
+      numberformat: "^\\d{1,4}\\s*[A-B]$"  
+    },
+    {
+      id: 3245,
+      name: "tour de Innsbruck",
+      date: new Date("2016-06-23"),
+      img: "",
+      numberformat: "^[A-B]{1}\\s*\\d{1,4}$"
+    },
+    {
+      id: 7357,
+      name: "Augsburg Halbmarathon",
+      date: new Date("2016-07-02"),
+      img: "",
+      numberformat: "^[A-Z]{1}\\s*\\d{1,4}$"
+    }
+  ];
+
 app.get('/cameras', function (req, res) {
   var eventID = req.query.id;
-  console.log(eventID +', '+ req.query.id);
-  
+  //console.log(eventID +', '+ req.query.id);
+  res.header("Content-Type", "application/json");
   switch (parseInt(eventID, 10)) {
     case 0:
       res.status(200).send({
@@ -86,43 +124,7 @@ app.get('/cameras', function (req, res) {
 
 app.get('/events', function (req, res) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.send([
-     {
-      id: 0,
-      name: "Zugspitz Ultratrail",
-      date: new Date("2016-06-23"),
-      img: "",
-      numberformat: "^\\d{4}$"
-    },
-    {
-      id: 1,
-      name: "Rad am Ring",
-      date: new Date("2016-07-23"),
-      img: "",
-      numberformat: "^[A-B]{1}\\s*\\d{1,4}$"
-    },
-    {
-      id: 2,
-      name: "TestEvent",
-      date: new Date("2016-02-23"),
-      img: "",
-      numberformat: "^\\d{1,4}\\s*[A-B]$"  
-    },
-    {
-      id: 3245,
-      name: "tour de Innsbruck",
-      date: new Date("2016-06-23"),
-      img: "",
-      numberformat: "^[A-B]{1}\\s*\\d{1,4}$"
-    },
-    {
-      id: 7357,
-      name: "Augsburg Halbmarathon",
-      date: new Date("2016-07-02"),
-      img: "",
-      numberformat: "^[A-Z]{1}\\s*\\d{1,4}$"
-    }
-  ]);
+  res.status(200).send(events);
 });
 
 app.post('/rider', function(req, res) {
@@ -135,7 +137,7 @@ app.post('/rider', function(req, res) {
   req.on('end', function () {
     console.log(JSON.parse(jsonString));
 
-    res.send(JSON.parse(jsonString));
+    res.status(200).send('ok');
 
   });
 });
