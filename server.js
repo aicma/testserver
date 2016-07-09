@@ -4,7 +4,7 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 var events = [
-     {
+    {
       id: 0,
       name: "Zugspitz Ultratrail",
       date: new Date("2016-06-23"),
@@ -39,24 +39,29 @@ var events = [
       img: "",
       numberformat: "^[A-Z]{1}\\s*\\d{1,4}$"
     }
-  ];
+];
 
+var cameras = {
+  0: {
+    1: {
+          lat: 48.3582,
+          long: 10.9067
+        },
+    2: {
+          lat: 48.356349,
+          long: 10.896281
+        }
+  }
+}
 app.get('/cameras', function (req, res) {
   var eventID = req.query.id;
   //console.log(eventID +', '+ req.query.id);
   res.header("Content-Type", "application/json");
   switch (parseInt(eventID, 10)) {
     case 0:
-      res.status(200).send({
-          1: {
-            lat: 48.3582,
-            long: 10.9067
-          },
-          2: {
-            lat: 48.356349,
-            long: 10.896281
-          }
-      });
+      res.status(200).send(
+        cameras.0;
+      );
       break;
     case 1:
       res.status(200).send({
