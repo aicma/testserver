@@ -41,18 +41,6 @@ var events = [
     }
 ];
 
-var cameras = {
-  0: {
-    1: {
-          lat: 48.3582,
-          long: 10.9067
-        },
-    2: {
-          lat: 48.356349,
-          long: 10.896281
-        }
-  }
-}
 app.get('/cameras', function (req, res) {
   var eventID = req.query.id;
   //console.log(eventID +', '+ req.query.id);
@@ -60,7 +48,14 @@ app.get('/cameras', function (req, res) {
   switch (parseInt(eventID, 10)) {
     case 0:
       res.status(200).send({
-        cameras.0;
+          1: {
+            lat: 48.3582,
+            long: 10.9067
+          },
+          2: {
+            lat: 48.356349,
+            long: 10.896281
+          }
       });
       break;
     case 1:
