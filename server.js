@@ -3,7 +3,7 @@ var app = express();
 
 var PORT = process.env.PORT || 8080;
 
-var eventsDate = new Date(2016-07-10);
+var eventsDate = new Date(2016,6,10);
 var events = [
     {
       id: 0,
