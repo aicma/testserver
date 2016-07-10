@@ -126,7 +126,11 @@ app.get('/cameras', function (req, res) {
 });
 
 app.get('/events', function (req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.set({
+  'Access-Allow-Origin': '*',
+  'Content-Type': 'application/json',
+  'Cache-Control': 'max-age=3600'
+  })
   res.status(200).send(events);
 });
 
