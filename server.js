@@ -44,7 +44,10 @@ var events = [
 app.get('/cameras', function (req, res) {
   var eventID = req.query.id;
   //console.log(eventID +', '+ req.query.id);
-  res.header("Content-Type", "application/json");
+  res.set({
+  'Content-Type': 'application/json',
+  'Cache-Control': 'max-age=3600'
+})
   switch (parseInt(eventID, 10)) {
     case 0:
       res.status(200).send({
