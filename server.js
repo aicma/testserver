@@ -3,6 +3,7 @@ var app = express();
 
 var PORT = process.env.PORT || 8080;
 
+var eventsDate = new Date(2016-07-10);
 var events = [
     {
       id: 0,
@@ -121,6 +122,10 @@ app.get('/cameras', function (req, res) {
           }
       });
     default:
+    res.set({
+      'Content-Type': 'text/plain',
+      'Cache-Control': 'max-age=3600'
+    })
         res.status(404).send('ERROR - EventID not registered'); //technically should not happen         
   }
 });
@@ -129,7 +134,8 @@ app.get('/events', function (req, res) {
   res.set({
   'Access-Allow-Origin': '*',
   'Content-Type': 'application/json',
-  'Cache-Control': 'max-age=3600'
+  'Cache-Control': 'no-cache',
+  'Last-Modified': eventsDate
   })
   res.status(200).send(events);
 });
